@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<img src="{% static 'images/logo.png' %}" alt="logo" width="100px">
+
+<h1 class="contents">2025 멋쟁이사자처럼 {{ generation }}기 2주차 세션 정리</h1>
+<div class="markdown_body">
+    {{ content|safe }}
+</div>
+
+
+{% endblock %}
