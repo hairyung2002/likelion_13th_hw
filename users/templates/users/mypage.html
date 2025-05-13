@@ -6,15 +6,15 @@
 {% if user.profile.thumbnail %}
     <p><img src="{{ user.profile.thumbnail.url }}" alt="프로필사진" width="100px"></p>
 {% endif %}
+<p>자기소개 : {{ user.bio }}</p>
 
 <div>
     {% for post in posts %}
     <div>
         <hr/>
-        <h3>{{post.objname}}</h3>
+        <h3><a href="{% url 'main:detail' post.id %}">{{ post.objname }}</a></h3>
         {{ post.name }} | {{ post.pub_date }}<br>
         {{ post.objdetail }}
-        <a href="{% url 'main:detail' post.id %}">자세히 보기</a>
     </div>
     {% endfor %}
 </div>

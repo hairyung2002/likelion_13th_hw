@@ -3,6 +3,7 @@
 
 <h1 class="contents">2025 멋쟁이사자처럼 13기</h1>
 <div class="contents">This is Second Page</div>
+{% if user.is_authenticated %}
 <a href="{% url 'main:new-post' %}">새 글 작성</a>
 <div>
     {% for post in posts %}
@@ -15,6 +16,12 @@
     </div>
     {% endfor %}
 </div>
+
+{% else %}
+
+<h2>로그인 후 이용 가능한 페이지입니다. 로그인 후 이용해주세요!</h2>
+
+{% endif %}
 
 {% endblock %}
 

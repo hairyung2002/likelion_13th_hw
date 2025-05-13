@@ -66,4 +66,4 @@ def delete(request, id):
     delete_post= Post.objects.get(pk=id)
     delete_post.delete()
 
-    return redirect('main/secondpage')
+    return redirect('main:secondpage')
