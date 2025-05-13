@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block content %}
+<h1>환영합니다. {{ user.username }}님</h1>
+{% if user.profile.thumbnail %}
+    <p><img src="{{ user.profile.thumbnail.url }}" alt="프로필사진" width="100px"></p>
+{% endif %}
+
+<div>
+    {% for post in posts %}
+    <div>
+        <hr/>
+        <h3>{{post.objname}}</h3>
+        {{ post.name }} | {{ post.pub_date }}<br>
+        {{ post.objdetail }}
+        <a href="{% url 'main:detail' post.id %}">자세히 보기</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

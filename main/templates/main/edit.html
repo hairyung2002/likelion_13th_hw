@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>수정 중...</h2>
+<form action="{% url 'main:update' post.id %}" method="POST">
+    {% csrf_token %}
+    <p>판매 물건:<input type="text" name="objname" value="{{post.objname}}"></p>
+    <p>작성자:<input type="text" name="name" value="{{post.name}}"></p>
+    {% if blog.image %}
+        <p><img src="{{ blog.image,url }}" alt="사진" width="100px"></p>
+    {% endif %}
+    <p>사진: <input type="file" name="image"></p>
+    <p>내용:<textarea type="text" name="content" id="" cols="30" rows="10">{{ post.objdetail }}</textarea></p>
+    <button type="submit">제출</button>
+</form>
+{% endblock %}
