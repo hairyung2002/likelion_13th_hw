@@ -1,2 +1,2 @@
 # 13th_session
-13기 세션
+DGU LikeLion_13th_BE_HW
