@@ -1,3 +1,22 @@
 h1 {
     color: orange;
 }
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-right,
+.nav-left {
+    display: flex;
+    gap: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.navbar-link {
+    padding-left: 15px;
+    gap: 25px;
+}
