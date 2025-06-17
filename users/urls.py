@@ -7,4 +7,5 @@ app_name="users"
 
 urlpatterns = [
     path('mypage/<int:id>', mypage, name="mypage"),
+    path('follow/<int:id>', follow, name="follow"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

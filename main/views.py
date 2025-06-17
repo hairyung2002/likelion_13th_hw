@@ -138,3 +138,17 @@ def delete_unuse_tag():
     for tag in Tag.objects.all():
         if tag.posts.count() == 0:
             tag.delete()
+
+def likes(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.user in post.like.all():
+        post.like.remove(request.user)
+        post.like_count -= 1
+        post.save()
+
+    else:
+        post.like.add(request.user)
+        post.like_count += 1
+        post.save()
+
+    return redirect('main:detail', post.id)
