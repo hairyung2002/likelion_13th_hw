@@ -2,12 +2,12 @@
 {%load static %}
 
 {% block content %}
-<h1>환영합니다. {{ user.username }}님</h1>
-<p>팔로워<br>{{ user.profile.followers.count }}명</p>
-<p>팔로잉<br>{{ user.profile.followings.count }}명</p>
+<h1>환영합니다. {{ profile_user.username }}님</h1>
+<p>팔로워<br>{{ profile_user.profile.followers.count }}명</p>
+<p>팔로잉<br>{{ profile_user.profile.followings.count }}명</p>
 
 {% if request.user != user %}
-    {% if request.user.profile in user.profile.followers.all %}
+    {% if request.user.profile in profile_user.profile.followers.all %}
         <a href="{% url 'users:follow' user.id %}">
             <button type="button" class="btn btn-outline-info">언팔로우</button>
         </a>
@@ -17,10 +17,10 @@
         </a>
     {% endif %}
 {% endif %}
-{% if user.profile.thumbnail %}
-    <p><img src="{{ user.profile.thumbnail.url }}" alt="프로필사진" width="100px"></p>
+{% if profile_user.profile.thumbnail %}
+    <p><img src="{{ profile_user.profile.thumbnail.url }}" alt="프로필사진" width="100px"></p>
 {% endif %}
-<p>자기소개 : {{ user.bio }}</p>
+<p>자기소개 : {{ profile_user.bio }}</p>
 
 <div>
     {% for post in posts %}

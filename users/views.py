@@ -5,11 +5,11 @@ from main.models import Post
 
 # Create your views here.
 def mypage(request, id):
-    user = get_object_or_404(User, pk=id)
-    posts = Post.objects.filter(name=user)
+    profile_user = get_object_or_404(User, pk=id)
+    posts = Post.objects.filter(name=profile_user)
 
     context = {
-        'user':user,
+        'profile_user':profile_user,
         'posts':posts
     }
     
